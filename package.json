@@ -1,0 +1,19 @@
+{
+  "name": "project3-game",
+  "version": "1.0.0",
+  "description": "",
+  "main": "game final.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TDAWebDevBootcamp/OOPs-I-made-a-game.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TDAWebDevBootcamp/OOPs-I-made-a-game/issues"
+  },
+  "homepage": "https://github.com/TDAWebDevBootcamp/OOPs-I-made-a-game#readme"
+}
