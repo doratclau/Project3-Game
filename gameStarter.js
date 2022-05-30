@@ -343,6 +343,10 @@ Hall.roomItem2 = Door;
   document.getElementById("usertext").focus();
 }
 
+function RefreshPage()
+          {
+            window.location = window.location.href;
+          };
 
   function commandHandler(command, roomItem1, roomItem2) {
     switch (command) {
@@ -359,6 +363,7 @@ Hall.roomItem2 = Door;
           if (safePw === correctPw) {
             alert ("Congratulations you unlocked the safe and found the key. \nUse command 'open' to unlock the locked.\n e.g. open door");
             guessed = true;
+            displayRoomInfo(currentRoom);
           } else {
             alert ("Incorrect password. You have " + `${maxAttempt - counter -1}` + " attempt(s) left.");
           }
@@ -366,10 +371,6 @@ Hall.roomItem2 = Door;
         } 
         if (counter == 3) {
           alert ("You triggered the alarm and caught by the police.\nYou lose.\nGame Over.")
-          function RefreshPage()
-          {
-            window.location = window.location.href;
-          };
           RefreshPage();
         }
         break;
@@ -389,7 +390,8 @@ Hall.roomItem2 = Door;
         break;
       case "open door":
         msg = roomItem2.msgTrap();
-        alert(msg)
+        alert(msg);
+        RefreshPage();
         break;
       case "help":
         msg = "Command:\nTo navigate between rooms, input north, east, south, west.\nTo take a look at the object, input left, right.\nTo unlock the safe, input unlock."
