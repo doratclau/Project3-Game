@@ -141,7 +141,7 @@ class roomItem1 {
   }
 
   getHint() {
-    return "You have found a number: " + this._hint;
+    return "You found a number: " + this._hint;
   }
 }
 
@@ -191,11 +191,11 @@ class roomItem2 {
 
   //description for the item
   describe() {
-    return " On your left, you have also found a " + this._name + ", the " + this._name + " is " + this._description;
+    return " On your left, you have also found a " + this._name + ", the " + this._name + " "  + this._description;
   }
 //present hints of the item
   getMsg() {
-    return " You found " + this._hint;
+    return this._hint;
   }
 
 }
@@ -280,30 +280,30 @@ Vase.hint = "07";
 
 const Mirror = new roomItem1("mirror");
 Mirror.description = "moist word written on wet mirror:";
-Mirror.hint = " > > > > ";
+Mirror.hint = "x > y > z ";
 
 //assign item2
 
 const Safe = new roomItem2("safe");
-Safe.description = "requires passcode to unlock.";
+Safe.description = "requires passcode to unlock";
 Safe.hint = "6-digits";
 
 const RubberDuck = new roomItem2("rubber duck");
-RubberDuck.description = "floating in the bathtub.";
+RubberDuck.description = "is floating in the bathtub.";
 RubberDuck.hint = "there's nothing on it.";
 
 //assign Escape route
 
 const Trapdoor = new Escape("trapdoor");
 Trapdoor.description = "is hidden underneath the desk";
-Trapdoor.hint = "it's locked and you need a key."
+Trapdoor.hint = "It's locked and you need a key."
 Trapdoor.escape = "escaped through a secret tunnel."
 
 //assign Trap route
 
 const Door = new Trap("door");
-Door.description = "locked"
-Door.hint = "it's locked and you need a key.";
+Door.description = "is locked"
+Door.hint = "It's locked and you need a key.";
 Door.trap = "triggered the alarm and caught by the police."
 
 console.log(Door)
@@ -351,27 +351,37 @@ Hall.roomItem2 = Door;
       let correctPw = "241107";
       //set number of attempts
         let maxAttempt = 3;
-        let counter = 1;
+        let counter = 0;
         let guessed = false;
         //give number of attempts
-        while(!guessed && counter < 3) {
+        while (!guessed && counter < 3) {
           let safePw = prompt("Please enter the passcode:");
           if (safePw === correctPw) {
-            alert ("Congratulations you unlocked the safe and found the key.");
+            alert ("Congratulations you unlocked the safe and found the key. \nUse command 'open' to unlock the locked.\n e.g. open door");
             guessed = true;
           } else {
-            alert ("Incorrect password. You have " + `${maxAttempt - counter}` + " attempt(s) left.");
+            alert ("Incorrect password. You have " + `${maxAttempt - counter -1}` + " attempt(s) left.");
           }
           counter++;
+        } 
+        if (counter == 3) {
+          alert ("You triggered the alarm and caught by the police.\nYou lose.\nGame Over.")
+          function RefreshPage()
+          {
+            window.location = window.location.href;
+          };
+          RefreshPage();
         }
         break;
       case "right":
         msg = roomItem1.getHint();
         alert(msg)
+        displayRoomInfo(currentRoom);
         break;
       case "left":
         msg = roomItem2.getMsg();
         alert(msg)
+        displayRoomInfo(currentRoom);
         break;
       case "open trapdoor":
         msg = roomItem2.msgEscape();
@@ -382,7 +392,7 @@ Hall.roomItem2 = Door;
         alert(msg)
         break;
       case "help":
-        msg = "To navigate between rooms, input north, east, south, west.\nTo take a look at the object, input left, right."
+        msg = "Command:\nTo navigate between rooms, input north, east, south, west.\nTo take a look at the object, input left, right.\nTo unlock the safe, input unlock."
         alert(msg)
         displayRoomInfo(currentRoom);
         break;
