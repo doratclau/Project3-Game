@@ -289,7 +289,7 @@ Safe.description = "requires passcode to unlock";
 Safe.hint = "6-digits";
 
 const RubberDuck = new roomItem2("rubber duck");
-RubberDuck.description = "is floating in the bathtub.";
+RubberDuck.description = "is floating in the bathtub";
 RubberDuck.hint = "there's nothing on it.";
 
 //assign Escape route
