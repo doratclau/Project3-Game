@@ -1,0 +1,35 @@
+body{
+    font-family: 'AvaraBold', sans-serif;
+    text-align: center;
+    background-image: url("locked.jpeg");
+    background-repeat: no-repeat;
+    background-size: 125%;
+    }
+    
+  #gamearea
+    {
+      position: absolute;
+      margin: auto;
+      top: 100px;
+      right: 0;
+      bottom: 100px;
+      left: 0;
+      height: 600px;
+      width: 1000px;
+      background-color: rgba(0, 0, 0, 0.49);
+      border-radius: 10px;
+      color: whitesmoke;
+      padding:20px;
+    }
+  
+    input{
+      color: rgb(0, 0, 0);
+      background-color: whitesmoke;
+      border: 0px;
+    }
+  
+    input:focus {
+      outline: black !important;
+      border-color: #719ECE;
+      box-shadow: 0 0 10px #719ECE;
+    }
