@@ -141,7 +141,7 @@ class roomItem1 {
   }
 
   getHint() {
-    return "You found a number: " + this._hint;
+    return "You found " + this._hint;
   }
 }
 
@@ -268,15 +268,15 @@ Hall.linkRoom("east", Study);
 //assign passcode to objects
 const Painting = new roomItem1("painting");
 Painting.description = "the Starry Night from Vincent van Gogh.";
-Painting.hint = "11";
+Painting.hint = "a number: 11";
 
 const Photo = new roomItem1("photo");
 Photo.description = "a photo of a old man wearing a numbered jersey.";
-Photo.hint = "24";
+Photo.hint = "a number: 24";
 
 const Vase = new roomItem1 ("vase");
 Vase.description = "broken. ";
-Vase.hint = "07";
+Vase.hint = "a number: 07";
 
 const Mirror = new roomItem1("mirror");
 Mirror.description = "moist word written on wet mirror:";
